@@ -1,0 +1,82 @@
+{
+  "name": "electron-app-demo",
+  "description": "Electro",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "@babel/core": "^7.12.3",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.5.3",
+    "electron": "^10.1.5",
+    "electron-is-dev": "^1.1.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "pg-hstore": "^2.3.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.2.0",
+    "reactstrap": "^8.6.0",
+    "sequelize": "^6.3.5",
+    "youch": "^2.0.10"
+  },
+  "scripts": {
+    "run-server": "nodemon --exec babel-node server/app.js",
+    "start": "rescripts start ",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000/ && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -w"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ]
+  },
+  "build": {
+    "appId": "org.oconsolador",
+    "productName": "O Consolador",
+    "win": {
+      "icon": "public/logo.png"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "server/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@rescripts/cli": "^0.0.13",
+    "@rescripts/rescript-env": "^0.0.11",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "electron-builder": "^22.1.0",
+    "typescript": "^3.6.4",
+    "wait-on": "^3.3.0"
+  }
+}
